@@ -1,0 +1,82 @@
+{% extends 'baseA.html.twig' %}
+{% block title %} Administration{% endblock %}
+{% block body %}
+    {% if article is defined %}
+        <div class="retour">
+            <a href="{{path('articles')}}" class="btn btn-sm btn-warning">Retour aux articles</a> 
+        </div>
+        {% if message is defined %}
+            <div class="alert alert-dismissible alert-danger message container" >
+                {{ message }}          
+            </div>
+        {% endif %}
+        <div class="container "> 
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3  ">
+                    <div class="col-12 ">
+                    <img  src="{{article.user.avatar}}" class="imageA"> 
+                    </div> 
+                    <div class="col-12">                   
+                        <label ><strong>Auteur: </strong><a href="{{path('showUser',{'id': article.user.id })}}" title="voir cet utilisateur">{{article.user.username}}</a> </label> 
+                    </div>
+
+                </div>
+                <!-- l'article -->
+                <div class="col-xs-12 col-sm-8 col-md-9  articleshow">
+                    <div class="card text-white bg-secondary mb-3" >
+                    <div class="card-header" ><h4>{{ article.name }}</h4></div>
+                    <div class="card-body">
+                        <p class="card-text" style="color:#663300;">{{ article.content }}</p>
+                        <label><strong>Date de création:</strong> {{article.createdAt | date('d/m/Y')}} à {{article.createdAt | date('H:i')}}</label>
+                    </div>
+                    </div>
+
+                </div>           
+
+            </div>
+            <div class="row">
+                <div class="col-12 trashA "> 
+                    <a href="{{ path('deleteArticleA'
+                    ,{id:article.id})}}"><img src="/imagesAdmin/trashA.jpg" class="trash" title="Supprimer cet article"></a>
+                </div>  
+            </div>
+           {% if article.comments is not empty  %}
+           <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3  ">
+      
+
+                </div>
+                <!-- l'article -->
+                <div class="col-xs-12 col-sm-8 col-md-9  ">
+                    <div class="card text-white bg-dark mb-3" >
+                    <div class="card-header" style="text-align:center"><h5> Les commentaires sur cet article</h5></div>
+                    <div class="card-body">
+                        {% for comment in article.comments %}
+                        <div class="row Comment">
+                            <div class="col-12">                   
+                                <label ><a href="{{path('showUser',{'id': comment.user.id })}} " title="voir cet utilisateur" class="auteurC">{{comment.user.username}}</a> </label> 
+                            </div> 
+                            <div class="col-xs-12 col-md-8 dateC">                       
+                                <label> {{comment.createdAt | date('d/m/Y')}} à {{comment.createdAt | date('H:i')}}</label>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <a class="btn btn-sm btn-danger" href="{{path("deleteCA",{id:article.id, idC:comment.id})}}">Supprimer cette commentaire</a>                                
+                            </div>
+                            <div class="col-12">      
+                                <p class="card-text" style="color:#663300;">{{ comment.content }}</p>
+                            </div>     
+                        </div>
+                        {% endfor %}
+                    </div>
+                    </div>
+
+                </div>           
+
+            </div>
+            {% endif %}
+        </div>
+
+
+
+   {% endif %}     
+{% endblock %}

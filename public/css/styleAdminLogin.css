@@ -1,0 +1,67 @@
+.marginRow
+{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+nav img
+{
+    height: 75px;
+}
+nav h4
+{
+    color: white; 
+}
+.marginT
+{
+    margin-top: 20px;
+}
+p
+{
+    color:red; 
+    text-align: center;
+}
+.textCenter
+{
+	text-align: center;
+}
+.textLeft
+{
+	text-align: left; 
+}
+.numerique
+{
+		background-image: url('/imagesAdmin/numerique2.jpg'); 
+		background-repeat: no-repeat;
+		background-position-x: center;	
+		background-size: 100%  100%;
+}
+.carteA
+{
+	padding: 2%;	
+	margin-top: 5%;
+	margin-bottom: 5%; 
+	border-radius: 5px;
+	color: #660000; 
+
+}
+.carteA div a 
+{
+	color: #660000;
+}
+.carteA div a:hover 
+{
+	color: #4169E1;
+	text-decoration: none; 
+}
+.carteA div h2 
+{
+	color: black; 
+	padding-top: 25px; 
+}
+.contenuC
+{
+	padding-bottom: 5px; 
+	background-color: white;
+	border-radius: 5px; 
+
+}

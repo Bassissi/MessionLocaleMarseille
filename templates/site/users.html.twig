@@ -1,0 +1,74 @@
+{% extends 'baseA.html.twig' %}
+{% block title %} Administration{% endblock %}
+{% block body %}
+   
+{% if users is defined %}
+     <p class="bienvenue container"><strong>Vous avez {{ usersNum }} utilisateurs </strong></p>
+          <!-- alert message-->
+        {% if message is not empty %}
+            <div class="alert alert-dismissible alert-danger message container" >
+                {{ message }}          
+            </div>
+        {% endif %}  
+    <div class="users container-fluid row" >
+       <div class="col-xs-12 col-sm-4 col-md-3 statistiques">
+            <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+                <div class="card-header ">Chercher un utilisateur</div>
+                <div class="card-body">
+                            <form class="form-inline my-1 my-lg-0" method="POST">
+                                <input class="form-control mr-sm-2 col-12" type="text" name="username" required placeholder="Search"> 
+                                <div class="col-12 chercher">                               
+                                    <button class="btn btn-danger my-2 my-sm-0" type="submit" name="search">Chercher</button>
+                                </div>
+                            </form>
+                </div>
+            </div>  
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">Ajouter un utilisateur</div>
+                <div class="card-body">
+                    <a href="{{path('addUserA')}}"> <img src="/imagesAdmin/addUserA.png" style="width:75px; height:75px;" title="Ajouter un utilisateur"></a>
+                </div>
+            </div>                          
+       </div>
+
+       <div class="col-xs-12 col-sm-8 col-md-9">
+          <div class="table-responsive-sm">
+          <table class="table table-hover ">
+            <thead>
+                <tr class=" table-active">
+                <th scope="col" >Pseudo</th>
+                <th scope="col" >Date d'inscription</th>
+                <th scope="col" >Mail</th>
+                <th scope="col" >Téléphone</th>
+                <th scope="col" >Opération</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr class="table-secondary">
+                    <th scope="row">{{user.username}}</th>
+                    <td>{{user.createdAt | date('d/m/Y')}} à {{user.createdAt | date('H:i')}}</td>
+                    <td>{{user.email}}</td>
+                    <td>0{{user.phone}}</td>
+                    <td>
+                       {# <a href="#" class="btn btn-sm btn-info ">Voir</a> #}
+                       {% if user.username == username %}
+                       <a href="{{path('profil')}}"class="btn btn-sm btn-danger margin0">Votre Profil</a>
+                       {% else %}
+                       <a href="{{path('showUser',{'id': user.id })}}"class="btn btn-sm btn-danger margin0">Voir et Gérer</a>
+                       {% endif %}
+                    </td>
+                </tr>  
+            {% endfor %}              
+            </tbody>
+        </table>
+        </div>    
+       </div>    
+     
+    </div>    
+{% endif %}
+
+
+{% endblock %}
+
+

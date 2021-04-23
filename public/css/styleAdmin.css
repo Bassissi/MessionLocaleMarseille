@@ -1,0 +1,156 @@
+nav img
+{
+    height: 75px;
+
+}
+ .bienvenue
+{
+    text-align: center;
+    padding: 10px;
+    background-color:rgb(118, 130, 143);  
+    margin-top: 10px;
+    color:white; 
+    border-radius: 5px;
+}
+.statistiques .card
+{
+    text-align: center;
+    
+}
+.statistiques .card img
+{
+    height: 175px;
+    width: 175px;
+    border-radius: 5px;
+    
+}
+.quie
+{
+    padding-top: 5px;
+    
+}
+.statistiques a
+{
+    color:white; 
+    text-decoration: underline;
+}
+.statistiques a:active
+{
+    color:red;  
+    
+}
+.chercher
+{
+    padding-top: 10px;
+}
+.margin0
+{
+    margin-left: 3px;
+}
+.retour 
+{
+    padding: 5px;
+}
+.borderW 
+{
+    background-color: blue;
+}
+
+.aucun
+{
+    color: rgb(124, 20, 20);
+}
+.profil
+{
+    margin-top: 5%;
+    border: 1px solid #2c3e50;   
+}
+.profil img
+{
+    height: 200px;
+    width: 200px;
+    padding-top: 5px; 
+    padding-bottom: 5px;
+    
+}
+.infoProfil
+{
+    margin-top: 3%; 
+    
+}
+.lineProfil
+{
+    padding: 10px; 
+    margin-right: 5px; 
+    background-color: #CCCCCC;
+}
+.lineProfil strong
+{
+    padding-right: 5px;
+}
+.trash
+{
+    width: 100px;
+    height: 100px;
+    
+}
+.imageA
+{
+  
+        height: 200px;
+        width: 200px;
+        padding-top: 5px; 
+        padding-bottom: 5px;
+   
+}
+.articleshow h4
+{
+   text-align: center;
+}
+.articleshow label
+{
+ font-size: 13px;
+ float: right;
+}
+.trashA 
+{
+    text-align: center;
+}
+.Comment
+{
+    border: 1px solid white; 
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+.Comment .auteurC
+{
+    color: blue;  
+}
+.Comment .dateC
+{
+   font-size: 13px; 
+}
+.message
+{
+    text-align: center;
+    font-size: 14px;
+}
+.marginbottom
+{
+    margin-bottom: 5px;
+   
+}
+.formUser
+{
+    padding: 15px;
+    border: 1px solid #76828F;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    
+}
+.marginValide
+{
+    margin: 5px; 
+}

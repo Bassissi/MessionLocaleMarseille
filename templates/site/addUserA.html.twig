@@ -1,0 +1,104 @@
+{% extends 'baseA.html.twig' %}
+{% block title %} Administration{% endblock %}
+{% block body %}
+<div class="container statistiques">
+
+    <p class="bienvenue"><strong>Ajouter un utilisateur</strong></p>
+    <!-- alert message-->
+        {% if message is not empty %}
+            <div class="alert alert-dismissible alert-danger message container" >
+                {{ message }}          
+            </div>
+        {% endif %} 
+       
+    <form action="" method="POST" class="formUser">
+        <div class="row">
+
+                <div class="col-xs-12 col-md-12">                
+                     <label for="admin">Admin*</label>
+                     <select name="admin" id="admin" class="form-control">
+                        <option value="1">Oui</option>
+                        <option value="0">Non</option>
+                     </select>                                           
+                </div>
+        </div>     
+        <div class="row">
+                <div class="col-xs-12 col-md-6">                
+                     <label for="username">Pseudo*</label>
+                     <input type="text" name="username" minlength=6 maxlength=25 required id="username" class="form-control marginbottom">                        
+                </div>
+                <div class="col-xs-12 col-md-6">                
+                     <label for="firstname">Prénom*</label>
+                     <input type="text" name="firstname" minlength=3 maxlength=25 required id="firstname" class="form-control marginbottom">                        
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-xs-12 col-md-6">                
+                     <label for="lastname">Nom*</label>
+                     <input type="text" name="lastname" minlength=3 maxlength=25 required id="lastname" class="form-control marginbottom">                        
+                </div>
+                <div class="col-xs-12 col-md-6">                
+                     <label for="sex">Sexe*</label>
+                     <select name="sex" id="sex" class="form-control">
+                        <option>Femme</option>
+                        <option>Homme</option>
+                     </select>                                           
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-xs-12 col-md-6">                
+                     <label for="email">Mail*</label>
+                     <input type="email" name="email"  maxlength=75 required id="email" class="form-control marginbottom">                        
+                </div>
+                <div class="col-xs-12 col-md-6">                
+                     <label for="phone">Téléphone*</label>
+                     <input type="tel" name="phone" minlength=10 maxlength=10 required id="phone" class="form-control marginbottom">                                       
+                </div>
+        </div> 
+        <div class="row">
+                <div class="col-xs-12 col-md-6">                
+                     <label for="address">Adresse*</label>
+                     <input type="text" name="address" minlength=6 maxlength=100 required id="address" class="form-control marginbottom">                        
+                </div>
+                <div class="col-xs-12 col-md-6">                
+                     <label for="arrondissement">Arrondissement*</label>
+                     <input type="tel" name="arrondissement" minlength=5 maxlength=5 required id="arrondissement" class="form-control marginbottom">                                       
+                </div>
+        </div>  
+        <div class="row">
+                <div class="col-xs-12 col-md-6">                
+                     <label for="birthday">Date de naissance*</label>
+                     <input type="date" name="birthday" required id="birthday" class="form-control marginbottom">                        
+                </div>
+                <div class="col-xs-12 col-md-6">                
+                     <label for="candidat">Candidat*</label>
+                     <select name="candidat" id="candidat" class="form-control">
+                        <option value="1">Oui</option>
+                        <option value="0">Non</option>
+                     </select>                                           
+                </div>
+        </div>   
+        <div class="row">
+                <div class="col-xs-12 col-md-6">                
+                     <label for="password">Mot de passe*</label>
+                     <input type="password" name="password" minlength=6 maxlength=25 required id="password" class="form-control marginbottom">                        
+                </div>
+                <div class="col-xs-12 col-md-6">                
+                     <label for="passwordC">Confirmer votre mot de passe*</label>
+                     <input type="password" name="passwordC" minlength=6 maxlength=25 required id="passwordC" class="form-control marginbottom">                        
+                </div>
+        </div>                             
+        <div class="row">
+                <div class="col-xs-12 col-md-5"></div>
+                <div class="col-xs-12 col-md-7">
+                        <button type="submit" name="validation" class="btn btn-sm btn-success marginValide">Ajouter un utilisateur</button>
+                </div>        
+        </div>           
+    </form>
+    
+
+</div>
+
+
+
+{% endblock %}        

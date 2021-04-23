@@ -1,0 +1,75 @@
+{% extends 'baseA.html.twig' %}
+{% block title %} Administration{% endblock %}
+{% block body %}
+   
+    {% if user is defined %}
+        <div class="retour">
+            <a href="{{path('users')}}" class="btn btn-sm btn-warning">Retour aux utilisateurs</a> 
+        </div>
+        <div class="container profil"> 
+            <div class="row" >
+             <div class="col-xs-12 col-sm-4 col-md-3 ">
+                <div class="col-12">
+                 <img src="{{user.avatar}}"> 
+                </div> 
+                <div class="col-12">
+                 {% if user.admin == 1 %}
+                 <label ><strong>Admin:</strong> oui</label>                 
+                 {% else %}
+                 <label ><strong>Admin:</strong> No</label>  
+                 {% endif %}
+                </div>                
+                <div class="col-12">
+                 <label ><strong>Date de création:</strong> {{user.createdAt | date('d/m/Y')}} à {{user.createdAt | date('H:i')}}</label>
+                </div>
+             </div>
+             <div class="col-xs-12 col-sm-8 col-md-9 infoProfil ">
+               <div class="row lineProfil">
+                    <div class="col-xs-12 col-md-4">
+                        <label ><strong>Pseudo: </strong> {{user.username }}</label>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <label ><strong>Prénom: </strong> {{user.firstname }}</label>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <label ><strong>Nom: </strong> {{user.lastname }}</label>
+                    </div>
+                </div>
+                <div class="row lineProfil">
+                    <div class="col-xs-12 col-md-6">
+                        <label ><strong>Mail: </strong> {{user.email }}</label>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <label ><strong>Téléphone: </strong> 0{{user.phone}}</label>
+                    </div>
+  
+                </div>    
+                <div class="row lineProfil">
+                    <div class="col-xs-12 col-md-6">
+                        <label ><strong>Adresse: </strong> {{user.address }}</label>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <label ><strong>Arrondissement: </strong> {{user.zipcode}}</label>
+                    </div> 
+                </div>  
+                <div class="row lineProfil">
+                    <div class="col-xs-12 col-md-4">
+                       {% if user.candidat ==1%}
+                        <label ><strong>Candidat: </strong>oui</label>
+                       {% else %} 
+                        <label ><strong>Candidat: </strong>no</label>
+                       {% endif %} 
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <label ><strong>Date de naissance: </strong> {{user.birthday}}</label>
+                    </div> 
+                    <div class="col-xs-12 col-md-4">
+                        <label ><strong>Sexe: </strong> {{user.sex }}</label>
+                    </div>
+                </div>                             
+             </div>
+           </div>
+        </div>
+
+    {% endif %}
+{% endblock %}

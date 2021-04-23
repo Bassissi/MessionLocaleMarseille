@@ -1,0 +1,102 @@
+{% extends 'baseA.html.twig' %}
+{% block title %} Administration{% endblock %}
+{% block body %}
+   {%if searchNum >0 %}
+   <div class="retour">
+        <a href="{{path('sections')}}" class="btn btn-sm btn-warning">Retour aux catégories</a> 
+   </div>
+   <p class="bienvenue container"><strong>Vous avez {{ searchNum }} résultats </strong></p>
+  <div class="users container-fluid row" >
+       <div class="col-xs-12 col-sm-4 col-md-3 statistiques">
+            <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+                <div class="card-header ">Chercher une catégorie</div>
+                <div class="card-body">
+                            <form class="form-inline my-1 my-lg-0" method="POST">
+                                <input class="form-control mr-sm-2 col-12" type="text" name="sectionname" required placeholder="Search"> 
+                                <div class="col-12 chercher">                               
+                                    <button class="btn btn-danger my-2 my-sm-0" type="submit" name="search">Chercher</button>
+                                </div>
+                            </form>
+                </div>
+            </div>              
+                       
+       </div>
+       <div class="col-xs-12 col-sm-8 col-md-9">
+          <div class="table-responsive-sm">
+          <table class="table table-hover ">
+            <thead>
+                <tr class=" table-active">
+                <th scope="col" >Titre</th>
+                <th scope="col" >Sous-catégories </th>
+                <th scope="col" >Opérations sur ces catégories</th>               
+                </tr>
+            </thead>
+            <tbody>
+            {% for section in sections %}
+                <tr class="table-secondary">
+                    <th scope="row">{{section.name}}</th>
+                    
+                    <td>
+                       {% if section.subsections is defined %}
+                        {% for subsection in section.subsections %} 
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        {{ subsection.name }} 
+                                    </div>
+                                    <div class="col-12">
+                                        <a href="{{path('deleteSubsectionA', {id:subsection.id})}}" class="btn  btn-danger btn-sm  " title="supprimer cette sous catégorie">Supprimer</a>
+                                        <a href="{{path('editSubsectionA', {id:subsection.id})}}" class="btn btn-sm btn-warning margin0" title="renommer cette sous catégorie">Renommer</a>
+                                    </div>                                
+                                </div> 
+                            </div>
+                        {% endfor %}
+                        {% else %}
+                        <p>Il n'y pas de sujet dans cette catégorie</p>
+                        {% endif %}
+                    </td>
+                    
+                    <td>
+                       <a href="{{path('deleteSectionA', {id:section.id})}}" class="btn btn-danger " title="supprimer cette catégorie">Supprimer</a>
+                       <a href="{{path('editSectionA', {id:section.id})}}"class="btn btn-warning margin0" title="renommer cette catégorie">Renommer</a>
+                    </td>
+                </tr>  
+            {% endfor %}              
+            </tbody>
+        </table>
+        </div>    
+       </div>          
+     
+     
+    </div>    
+    
+  
+     
+  
+    {% else %}
+        <div class="retour">
+                <a href="{{path('sections')}}" class="btn btn-sm btn-warning"> Retour aux catégories</a> 
+        </div>
+        <p class="bienvenue container aucun"><strong>Aucun Résultat, lancer une autre recherche. </strong></p>
+               <div class="users container-fluid row" >
+            <div class="col-xs-12 col-sm-4 col-md-5 "></div>
+            <div class="col-xs-12 col-sm-4 col-md-4 statistiques textCenter">
+                    <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+                        <div class="card-header ">Chercher une catégorie</div>
+                        <div class="card-body">
+                                    <form class="form-inline my-1 my-lg-0" method="POST">
+                                        <input class="form-control mr-sm-2 col-12" type="text" name="sectionname" required placeholder="Search"> 
+                                        <div class="col-12 chercher">                               
+                                            <button class="btn btn-danger my-2 my-sm-0" type="submit" name="search">Chercher</button>
+                                        </div>
+                                    </form>
+                        </div>
+                    </div>                                
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3 "></div>
+        </div>   
+    {% endif %}
+  
+{% endblock %}
+
+

@@ -1,0 +1,59 @@
+{% extends 'baseA.html.twig' %}
+{% block title %} Administration{% endblock %}
+{% block body %}
+<div class="container statistiques">
+
+    <p class="bienvenue"><strong>Ajouter une sous-catégorie</strong></p>
+    {% if  categories is not empty  %}
+    <!-- alert message-->
+        {% if message is not empty %}
+            <div class="alert alert-dismissible alert-danger message container" >
+                {{ message }}          
+            </div>
+        {% endif %} 
+       
+    <form action="" method="POST">
+        <div class="row">
+                <div class="col-12">                
+                        <label for="name">Nom de sous-catégorie*</label>
+                </div>
+                <div class="col-12">
+                         <input type="text" name="name" minlength=4 maxlength=100 required id="name" class="form-control marginbottom">
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-12">
+                        <label for="description">Description</label>
+                </div>
+                <div class="col-12">        
+                        <input type="text" name="description"  id="description" class="form-control marginbottom">
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-12">
+                        <label for="section">Dans quelle catégories*</label>
+                </div>
+                <div class="col-xs-12 col-md-3">        
+                       <select name="section" id="section" class="form-control">
+                        {% for categorie in categories %}
+                            <option value="{{ categorie.id }}">{{ categorie.name }}</option>
+                        {% endfor %}
+                       </select>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-xs-12 col-md-5"></div>
+                <div class="col-xs-12 col-md-7">
+                        <button type="submit" name="validation" class="btn btn-sm btn-info">Ajouter une sous-catégorie</button>
+                </div>        
+        </div>           
+    </form>
+    {% else  %}  
+    <a href="{{path('addSectionA')}}" class="btn btn-danger">Il n'y pas de catégorie aller en créer une </a>
+    {% endif %} 
+
+</div>
+
+
+
+{% endblock %}        

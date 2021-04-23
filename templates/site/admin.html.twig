@@ -1,0 +1,68 @@
+{% extends 'baseA.html.twig' %}
+{% block title %} Administration{% endblock %}
+{% block body %}
+<div class="container statistiques">
+
+    <p class="bienvenue"><strong>Bienvenue {{ username }} sur votre partie d'administration</strong></p>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+                <div class="card-header cardName">Statistiques de l'utilisateurs </div>
+                <div class="card-body">
+                    <img src="/imagesAdmin/usersA.jpg">
+                    <h6 class="card-text quie">Utilisateurs</h6>
+                    <a class="card-link"  href="{{ path('users') }}">{{usersNum}}</a>
+                </div>
+            </div >
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+                <div class="card-header cardName">Statistiques de l'articles </div>
+                <div class="card-body">
+                    <img src="/imagesAdmin/articlesA.png">
+                    <h6 class="card-text quie">Articles</h6>
+                    <a class="card-link"  href="{{ path('articles') }}">{{articlesNum}}</a>
+                </div>
+            </div >
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header cardName">Statistiques de les catégories </div>
+                <div class="card-body">
+                    <img src="/imagesAdmin/categoriesA.jpg">
+                    <h6 class="card-text quie">Catégories</h6>
+                    <a class="card-link"  href="{{ path('sections') }}">{{categoriesNum}}</a>
+                </div>
+            </div >
+        </div> 
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header cardName">Statistiques de les commentaires </div>
+                <div class="card-body">
+                    <img src="/imagesAdmin/commentsA.jpg">
+                    <h6 class="card-text quie">Commentaires</h6>
+                    <h6 class="card-text"  >{{commentsNum}}</h6>
+                </div>
+            </div >
+        </div>    
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header cardName">Statistiques de les messages </div>
+                <div class="card-body">
+                    <img src="/imagesAdmin/messagesA.png">
+                    <h6 class="card-text quie">Messages</h6>
+                    <h6 class="card-text"  >{{messagesNum}}</h6>
+                </div>
+            </div >
+        </div>                 
+    </div>
+
+
+
+</div>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,45 @@
+
+<head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Login{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/styleAdminLogin.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous">
+		</script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous">
+        </script>
+        {% block stylesheets %}{% endblock %}
+</head>
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="col-xs-12 col-md-4">
+            <a  href="{{path('admin')}}"><img src="/imagesAdmin/logo.png"/></a>
+        </div>
+    
+        <div class="col-xs-12 col-md-8">        
+            <h4>Mission Locale Marseille</h4>
+        </div>
+    </nav>
+
+
+	<div class="container" style="padding-right: 5%; padding-left: 5%; text-align:center; ">
+		<div class="row textCenter carteA numerique ">
+			    
+				<div   style=" " class="col-xs-12 col-md-6 textCenter " ><img src="/imagesAdmin/developpeur.jpg" width="200px" height="225px" class="img-responsive "/></div>
+			
+			    <div class="col-xs-12 col-md-6 textLeft contenuC">
+					<div class="col-xs-12"><strong>
+						<h2>Hmzeh Bassissi</h2></strong></div>				
+					<div class="col-xs-12"><strong>Développeur WEB</strong></div>
+					<div class="col-xs-12"><srtrong><i class="fas fa-mobile-alt"></i></srtrong> <strong>0782440117</strong>
+					</div>
+					<div class="col-xs-12">   
+						<a href="mailto:?to=hamzehbassissi@gmail.com">
+						<i class="fas fa-envelope"></i><strong>
+						 hamzehbassissi@gmail.com
+						</strong>
+						</a>
+					</div>
+				</div>
+
+	{% endblock %}

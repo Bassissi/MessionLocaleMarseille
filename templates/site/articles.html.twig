@@ -1,0 +1,72 @@
+{% extends 'baseA.html.twig' %}
+{% block title %} Administration{% endblock %}
+{% block body %}
+   
+{% if articles is defined %}
+
+     <p class="bienvenue container"><strong>Vous avez {{ articlesNum }} articles </strong></p>
+     <!-- alert message-->
+        {% if message is not empty  %}
+            <div class="alert alert-dismissible alert-danger message container" >
+                {{ message }}          
+            </div>
+        {% endif %}     
+    <div class="users container-fluid row" >
+       <div class="col-xs-12 col-sm-4 col-md-3 statistiques">
+            <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+                    <div class="card-header ">Chercher un article</div>
+                    <div class="card-body">
+                                <form class="form-inline my-1 my-lg-0" method="POST">
+                                    <input class="form-control mr-sm-2 col-12" type="text" name="articlename" required placeholder="Search"> 
+                                    <div class="col-12 chercher">                               
+                                        <button class="btn btn-danger my-2 my-sm-0" type="submit" name="search">Chercher</button>
+                                    </div>
+                                </form>
+                    </div>
+                </div>  
+                          
+           </div>
+
+           <div class="col-xs-12 col-sm-8 col-md-9">
+                    <div class="table-responsive-sm">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class=" table-active">
+                                <th scope="col" >Titre</th>
+                                <th scope="col" >Auteur</th>
+                                <th scope="col" >Catégorie</th>
+                                <th scope="col" >Date de création</th>                
+                                <th scope="col" >Opération</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                            {% for article in articles %}
+                                <tr class="table-secondary ">
+                                    
+                                    <th scope="row">{{article.name}}</th>
+                                    <td >{{article.user.username }} </td>
+                                    <td >{{article.subsection.section.name }}</td>
+                                    <td >{{article.createdAt | date('d/m/Y')}} à {{article.createdAt | date('H:i')}}</td>
+                                    
+                                    <td >
+                                    <a href="{{path('showArticle',{id:article.id})}}" class="btn btn-sm btn-danger ">Voir et Gérer</a>
+                                    
+                                    </td>
+                                    
+                                </tr> 
+                            
+                            {% endfor %}              
+                            </tbody>
+                        </table>  
+                    </div>
+                
+                </div>  
+       </div>    
+     
+    </div>    
+{% endif %}
+
+
+{% endblock %}
+
+
